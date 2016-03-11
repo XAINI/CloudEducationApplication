@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">云教育平台</string>
+    <string name="pwd">密码</string>
+    <string name="button_send">发送</string>
+    <string name="login_in">登录</string>
+    <string name="cancel">取消</string>
+    <string name="button_back">返回</string>
+    <string name="action_search">Search</string>
+    <string name="action_settings">Setting</string>
+    <string name="forget_pwd">忘记密码?</string>
+    <string name="account">账号</string>
+    <string name="sign_in_title">用户登录</string>
+    <string name="sign_up_title">用户注册</string>
+    <string name="sign_up">注册</string>
+    <string name="sign_up_prompt">我要登录>></string>
+    <string name="home">首页</string>
+    <string name="course">全部课程</string>
+    <string name="my_message">我</string>
+</resources>
