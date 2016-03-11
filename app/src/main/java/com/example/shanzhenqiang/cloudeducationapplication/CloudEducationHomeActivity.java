@@ -17,4 +17,9 @@ public class CloudEducationHomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CurriculumActivity.class);
         startActivity(intent);
     }
+
+    public void getInPersonalCenter(View view){
+        Intent intent = new Intent(this, PersonalCenterActivity.class);
+        startActivity(intent);
+    }
 }

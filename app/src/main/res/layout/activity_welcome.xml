@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="欢迎登录我们平台学习！"
-        android:textColor="#3DB55E"
+        android:textColor="@color/green"
         android:layout_centerHorizontal="true"
         android:textSize="30sp"/>
 

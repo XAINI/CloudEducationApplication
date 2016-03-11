@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dip"
             android:layout_marginTop="15dip"
-            android:textColor="#CC011F"
+            android:textColor="@color/red"
             android:textSize="12sp"/>
 
     </LinearLayout>
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:text="@string/account"
-                android:textColor="#000"
+                android:textColor="@color/black"
                 android:textSize="17sp" />
 
             <EditText
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:text="@string/pwd"
-                android:textColor="#000"
+                android:textColor="@color/black"
                 android:textSize="17sp" />
 
             <EditText
@@ -123,5 +123,5 @@
         android:layout_marginTop="15dip"
         android:layout_marginLeft="15dip"
         android:text="@string/forget_pwd"
-        android:textColor="#29981A" />
+        android:textColor="@color/green" />
 </LinearLayout>
