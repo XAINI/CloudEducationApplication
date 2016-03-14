@@ -17,4 +17,9 @@ public class MyCurriculumActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PersonalCenterActivity.class);
         startActivity(intent);
     }
+
+    public void checkInPHPDetail(View view){
+        Intent intent = new Intent(this, CurriculumMaterialActivity.class);
+        startActivity(intent);
+    }
 }

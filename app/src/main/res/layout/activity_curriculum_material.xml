@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CurriculumMaterialActivity">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:background="#D4D4D4"
+        >
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="36dp"
+            android:layout_height="27dp"
+            android:src="@drawable/back_29"
+            android:layout_marginTop="10dp"
+            android:onClick="backMyCurriculumPage"/>
+        <TextView android:layout_width="134dp"
+            android:layout_height="27dp"
+            android:layout_centerInParent="true"
+            android:text="PHP视频教程"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
+
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="27dp"
+            android:src="@drawable/google_search_32px"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/deepGray"
+                android:text="视频"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="PHP视频教程第一章.rmvb"
+                android:textColor="@color/black"
+                android:autoLink="email|phone|web"/>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="PHP视频教程第二章.rmvb"
+                android:textColor="@color/black"
+                android:autoLink="email|phone|web"/>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="PHP视频教程第三章.rmvb"
+                android:textColor="@color/black"
+                android:autoLink="email|phone|web"/>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="PHP视频教程第四章.rmvb"
+                android:textColor="@color/black"
+                android:autoLink="email|phone|web"/>
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow_thick_thin_down_24"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/deepGray"
+                android:text="资料"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="PHP视频教程第一章大纲.doc"
+                android:textColor="@color/black"
+                android:autoLink="email|phone|web"/>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="PHP视频教程第二章大纲.doc"
+                android:textColor="@color/black"
+                android:autoLink="email|phone|web"/>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="PHP视频教程第三章大纲.doc"
+                android:textColor="@color/black"
+                android:autoLink="email|phone|web"/>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="PHP视频教程第四章大纲.doc"
+                android:textColor="@color/black"
+                android:autoLink="email|phone|web"/>
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow_thick_thin_down_24"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <View android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/lightGray"
+        android:layout_marginTop="20dp"/>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/home_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home_37"
+                android:onClick="checkInHome" />
+            <ImageButton
+                android:id="@+id/book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/book_38"
+                android:onClick="checkInCurriculum"
+                android:layout_marginLeft="60dp"/>
+            <ImageButton
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/message_32px"
+                android:layout_marginLeft="60dp"
+                android:onClick="checkInMyMessage" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home"
+                android:layout_marginLeft="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/course"
+                android:layout_marginLeft="60dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:text="@string/mine" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

@@ -23,6 +23,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(home);
             }
         };
-        timer.schedule(task, 1000 * 4);
+        timer.schedule(task, 1000 * 3);
     }
 }

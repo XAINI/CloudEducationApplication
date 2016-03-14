@@ -23,7 +23,8 @@
         <activity android:name=".PersonalCenterActivity" />
         <activity android:name=".MyMessageActivity" />
         <activity android:name=".MessageDetailActivity" />
-        <activity android:name=".MyCurriculumActivity"></activity>
+        <activity android:name=".MyCurriculumActivity" />
+        <activity android:name=".CurriculumMaterialActivity"></activity>
     </application>
 
 </manifest>
