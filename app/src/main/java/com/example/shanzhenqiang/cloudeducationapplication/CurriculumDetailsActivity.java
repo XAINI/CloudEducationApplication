@@ -14,19 +14,23 @@ public class CurriculumDetailsActivity extends AppCompatActivity {
     }
 
 
-
-    public void backCurriculum(View view){
+    public void backCurriculum(View view) {
         Intent intent = new Intent(this, CurriculumActivity.class);
         startActivity(intent);
     }
 
-    public void curriculum(View view){
+    public void curriculum(View view) {
         Intent intent = new Intent(this, CurriculumActivity.class);
         startActivity(intent);
     }
 
-    public void home(View view){
+    public void home(View view) {
         Intent intent = new Intent(this, CloudEducationHomeActivity.class);
+        startActivity(intent);
+    }
+
+    public void getInPHPDetail(View view) {
+        Intent intent = new Intent(this, CurriculumMaterialActivity.class);
         startActivity(intent);
     }
 }
