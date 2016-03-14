@@ -33,8 +33,127 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/home_37"
+            android:scaleType="fitStart"
             android:layout_gravity="center"/>
 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/MyCurriculum"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:onClick="getInMyCurriculum"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6个"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Vertical"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/MyMessage"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:onClick="checkInMyMessage"/>
+        </LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:text="PHP视频教程"
+            android:gravity="center"
+            android:background="@color/lightGray"
+            android:layout_marginTop="20dp"/>
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:text="C语言基础"
+            android:gravity="center"
+            android:background="@color/lightGray"
+            android:layout_marginTop="20dp"/>
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:text="Java入门到精通"
+            android:gravity="center"
+            android:background="@color/lightGray"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+
+    <View android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/lightGray"
+        android:layout_marginTop="40dp"/>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/home_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home_37"
+                android:onClick="backPlatformHome" />
+            <ImageButton
+                android:id="@+id/book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/book_38"
+                android:onClick="checkInCurriculum"
+                android:layout_marginLeft="60dp"/>
+            <ImageButton
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/message_32px"
+                android:layout_marginLeft="60dp"
+                android:onClick="checkInMyMessage" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home"
+                android:layout_marginLeft="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/course"
+                android:layout_marginLeft="60dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:text="@string/mine" />
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

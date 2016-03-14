@@ -20,7 +20,10 @@
         <activity android:name=".CurriculumActivity" />
         <activity android:name=".CurriculumDetailsActivity" />
         <activity android:name=".CloudEducationHomeActivity" />
-        <activity android:name=".PersonalCenterActivity"></activity>
+        <activity android:name=".PersonalCenterActivity" />
+        <activity android:name=".MyMessageActivity" />
+        <activity android:name=".MessageDetailActivity" />
+        <activity android:name=".MyCurriculumActivity"></activity>
     </application>
 
 </manifest>
