@@ -7,34 +7,14 @@
     android:layout_gravity="center"
     tools:context=".CurriculumDetailsActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="42dp"
-        android:background="@color/lightGray"
-        >
-        <ImageButton
-            android:id="@+id/back"
-            android:layout_width="36dp"
-            android:layout_height="27dp"
-            android:src="@drawable/back_29"
-            android:layout_marginTop="10dp"
-            android:onClick="backCurriculum"/>
-        <TextView android:layout_width="134dp"
-            android:layout_height="27dp"
-            android:layout_centerInParent="true"
-            android:text="IT互联网"
-            android:textColor="@color/lightGray"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"/>
+        android:layout_height="wrap_content">
 
-        <ImageButton
-            android:layout_width="48dp"
-            android:layout_height="27dp"
-            android:src="@drawable/google_search_32px"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"/>
-    </RelativeLayout>
+        <include
+            layout="@layout/activity_header"
+            android:id="@+id/headerId"/>
+    </LinearLayout>
 
 
 
@@ -90,56 +70,14 @@
     </LinearLayout>
 
 
-    <View android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:background="@color/lightGray"
-        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
-        <TableRow android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageButton
-                android:id="@+id/home_page"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/home_37"
-                android:onClick="home" />
-            <ImageButton
-                android:id="@+id/book"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/book_38"
-                android:onClick="curriculum"
-                android:layout_marginLeft="60dp"/>
-            <ImageButton
-                android:id="@+id/message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/message_32px"
-                android:layout_marginLeft="60dp"
-                android:onClick="checkInMyMessage" />
-        </TableRow>
-        <TableRow android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/home"
-                android:layout_marginLeft="5dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/course"
-                android:layout_marginLeft="60dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:text="@string/mine" />
-        </TableRow>
-    </TableLayout>
+        <include
+            android:id="@+id/footerId"
+            layout="@layout/activity_footer" />
+
+    </LinearLayout>
 
 </LinearLayout>

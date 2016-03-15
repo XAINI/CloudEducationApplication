@@ -24,7 +24,10 @@
         <activity android:name=".MyMessageActivity" />
         <activity android:name=".MessageDetailActivity" />
         <activity android:name=".MyCurriculumActivity" />
-        <activity android:name=".CurriculumMaterialActivity"></activity>
+        <activity android:name=".CurriculumMaterialActivity" />
+        <activity android:name=".FooterActivity" />
+        <activity android:name=".HeaderActivity" />
+        <activity android:name=".OnlyTitleHeaderActivity"></activity>
     </application>
 
 </manifest>
