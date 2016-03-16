@@ -3,118 +3,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_gravity="center"
+    android:orientation="vertical"
     tools:context=".SignUpActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sign_up_title"
-        android:textSize="20sp"
-        android:textColor="#2B2B2B"
-        android:layout_marginLeft="80px"/>
-
-    <RelativeLayout
-        android:id="@+id/editRel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <RelativeLayout
-            android:id="@+id/accountRel"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:clickable="true"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/account"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="@string/account"
-                android:textSize="17sp"/>
-            <EditText
-                android:id="@+id/accountEdittext"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:hint="@string/account"
-                android:textSize="15sp"
-                android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@+id/account"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/accountRel"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/pwd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="@string/pwd"
-                android:textSize="17sp"/>
-
-            <EditText
-                android:id="@+id/pwdEdittext"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@id/pwd"
-                android:textSize="15sp"
-                android:hint="@string/pwd"
-                android:layout_centerVertical="true"/>
-        </RelativeLayout>
-
-    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up_title"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/accountRel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/account"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/accountEdittext"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/account"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/accountRel"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/pwd"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/pwdEdittext"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/pwd"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cancel"/>
-
+            android:text="@string/cancel" />
 
         <Button
             android:id="@+id/sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sign_up"
-            android:onClick="signUpUser"/>
-
+            android:onClick="signUpUser"
+            android:text="@string/sign_up" />
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sign_up_prompt"
-        android:onClick="checkSignUp"
-        android:textColor="@color/green"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="checkSignUp"
+            android:text="@string/sign_up_prompt"
+            android:textColor="@color/green" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:onClick="query"
+            android:text="query"
+            android:textColor="@color/green"/>
+    </LinearLayout>
+
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
-        <Button
-            android:text="query"
-            android:onClick="query"
+        <ListView
+            android:id="@+id/listView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
 </LinearLayout>

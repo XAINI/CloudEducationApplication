@@ -10,96 +10,79 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dip"
-            android:layout_marginLeft="50dip"
             android:text="@string/sign_in_title"
-            android:textColor="#2B2B2B"
+            android:textColor="@color/black"
             android:textSize="20sp"/>
 
         <TextView
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dip"
-            android:layout_marginTop="15dip"
-            android:textColor="@color/red"
+            android:text="您的账号与密码不符"
+            android:textColor="@color/colorAccent"
             android:textSize="12sp"/>
 
     </LinearLayout>
 
 
-    <RelativeLayout
-        android:id="@+id/editRel"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-        <RelativeLayout
-            android:id="@+id/accountRel"
-            android:layout_width="fill_parent"
+        <TextView
+            android:id="@+id/account"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:clickable="true"
-            android:gravity="center_vertical" >
+            android:padding="8dp"
+            android:text="@string/account"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
 
-            <TextView
-                android:id="@+id/account"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="@string/account"
-                android:textColor="@color/black"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/accountEdittext"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@id/account"
-                android:background="@null"
-                android:hint="@string/account"
-                android:textSize="15sp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/pwdRel"
-            android:layout_width="fill_parent"
+        <EditText
+            android:id="@+id/accountEdittext"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/accountRel"
-            android:clickable="true"
-            android:gravity="center_vertical" >
+            android:hint="@string/account"
+            android:textSize="15sp" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/pwd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="@string/pwd"
-                android:textColor="@color/black"
-                android:textSize="17sp" />
+    <LinearLayout
+        android:id="@+id/pwdRel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-            <EditText
-                android:id="@+id/pwdEdittext"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="20dip"
-                android:layout_toRightOf="@id/pwd"
-                android:background="@null"
-                android:hint="@string/pwd"
-                android:textSize="15sp" />
-        </RelativeLayout>
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/pwd"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/pwdEdittext"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/pwd"
+            android:textSize="15sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal" >
 
         <Button
@@ -116,12 +99,21 @@
             android:onClick="signIn"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/sound_help"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:layout_marginLeft="15dip"
-        android:text="@string/forget_pwd"
-        android:textColor="@color/green" />
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forget_pwd"
+            android:textColor="@color/green" />
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册"
+            android:textColor="@color/green"
+            android:onClick="backRegisterPage"/>
+    </LinearLayout>
 </LinearLayout>

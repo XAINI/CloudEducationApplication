@@ -17,4 +17,9 @@ public class SignInActivity extends AppCompatActivity {
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
     }
+
+    public void backRegisterPage(View view){
+        Intent intent = new Intent(this, SignUpActivity.class);
+        startActivity(intent);
+    }
 }

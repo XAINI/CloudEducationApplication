@@ -58,37 +58,56 @@
         </TableRow>
     </TableLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="畅销好课"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         android:background="@color/lightGray"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp"/>
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="畅销好课"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/book_19"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <TextView android:layout_width="fill_parent"
-            android:layout_height="80dp"
-            android:text="Android实例"
-            android:gravity="center"
-            android:background="@color/lightGray"
-            android:layout_marginTop="10dp"/>
-        <TextView android:layout_width="fill_parent"
-            android:layout_height="80dp"
-            android:text="C语言基础"
-            android:gravity="center"
-            android:background="@color/lightGray"
-            android:layout_marginTop="20dp"/>
-        <TextView android:layout_width="fill_parent"
-            android:layout_height="80dp"
-            android:text="Java入门到精通"
-            android:gravity="center"
-            android:background="@color/lightGray"
-            android:layout_marginTop="20dp"/>
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/yellowGreen"
+            android:layout_marginTop="10dp">
+
+        </ListView>
+        <!--<TextView android:layout_width="fill_parent"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:text="Android实例"-->
+            <!--android:gravity="center"-->
+            <!--android:background="@color/lightGray"-->
+            <!--android:layout_marginTop="10dp"/>-->
+        <!--<TextView android:layout_width="fill_parent"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:text="C语言基础"-->
+            <!--android:gravity="center"-->
+            <!--android:background="@color/lightGray"-->
+            <!--android:layout_marginTop="20dp"/>-->
+        <!--<TextView android:layout_width="fill_parent"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:text="Java入门到精通"-->
+            <!--android:gravity="center"-->
+            <!--android:background="@color/lightGray"-->
+            <!--android:layout_marginTop="20dp"/>-->
     </LinearLayout>
 
 

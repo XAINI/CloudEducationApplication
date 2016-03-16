@@ -25,6 +25,16 @@ public class PersonalCenterActivity extends AppCompatActivity {
         TextView textView = (TextView) ll2.findViewById(R.id.onlyHeaderTitleTextViewId);
         textView.setText("我的主页");
 
+        // fallback sign up
+        final Intent signUp = new Intent(this, SignUpActivity.class);
+        TextView fallbackRegister = (TextView) ll2.findViewById(R.id.fallBackRegister);
+        fallbackRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(signUp);
+            }
+        });
+
         // footer's onclick event
         final Intent intent1 = new Intent(this, CloudEducationHomeActivity.class);
         final Intent intent2 = new Intent(this, CurriculumActivity.class);
