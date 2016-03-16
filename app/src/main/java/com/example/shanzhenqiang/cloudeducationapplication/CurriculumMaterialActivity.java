@@ -15,8 +15,16 @@ public class CurriculumMaterialActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_curriculum_material);
+
+        // get the message from the intent
+        Intent intentMessage = getIntent();
+
+        // TODO here I want to use this two variables judge I need fallback page
+//        final String curriculumDetailMessage = intentMessage.getStringExtra(CurriculumDetailsActivity.EXTRA_MESSAGE);
+//        final String myCurriculumMessage = intentMessage.getStringExtra(MyCurriculumActivity.EXTRA_MESSAGE);
 
         ll = (LinearLayout) findViewById(R.id.footerId); // fetch footer layout id
         ll2 = (LinearLayout) findViewById(R.id.headerId); // fetch header layout id
@@ -26,12 +34,21 @@ public class CurriculumMaterialActivity extends AppCompatActivity {
         textView.setText("PHP视频教程");
 
         // header's onclick event
-        final Intent backIntent = new Intent(this, CurriculumDetailsActivity.class);
+        final Intent backIntentCurriculumDetail = new Intent(this, CurriculumDetailsActivity.class);
+        final Intent backIntentMyCurriculum = new Intent(this, MyCurriculumActivity.class);
         ImageButton backBtn = (ImageButton) ll2.findViewById(R.id.backId);
+
         backBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                startActivity(backIntent);
+                // TODO here I wan to back curriculum detail
+                if (true) {
+                    startActivity(backIntentCurriculumDetail);
+                }
+                // TODO here I want to back my curriculum
+                if (false){
+                    startActivity(backIntentMyCurriculum);
+                }
             }
         });
 

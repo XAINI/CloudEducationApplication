@@ -67,8 +67,4 @@ public class MessageDetailActivity extends AppCompatActivity {
         });
     }
 
-    public void backMyMessage(View view){
-        Intent intent = new Intent(this, MyMessageActivity.class);
-        startActivity(intent);
-    }
 }

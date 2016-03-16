@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 public class MyCurriculumActivity extends AppCompatActivity {
 
+    public final static String EXTRA_MESSAGE = "com.example.shanzhenqiang.cloudeducationapplication.MESSAGE";
     private LinearLayout ll = null;
     private LinearLayout ll2 = null;
 
@@ -68,6 +69,8 @@ public class MyCurriculumActivity extends AppCompatActivity {
 
     public void checkInPHPDetail(View view){
         Intent intent = new Intent(this, CurriculumMaterialActivity.class);
+        String message = "myCurriculum";
+        intent.putExtra(EXTRA_MESSAGE,message);
         startActivity(intent);
     }
 }
