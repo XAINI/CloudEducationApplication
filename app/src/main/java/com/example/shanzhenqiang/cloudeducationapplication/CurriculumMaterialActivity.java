@@ -83,8 +83,4 @@ public class CurriculumMaterialActivity extends AppCompatActivity {
         });
     }
 
-    public void backMyCurriculumPage(View view) {
-        Intent intent = new Intent(this, MyCurriculumActivity.class);
-        startActivity(intent);
-    }
 }
