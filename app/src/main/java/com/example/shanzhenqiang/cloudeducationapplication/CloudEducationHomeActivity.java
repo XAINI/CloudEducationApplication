@@ -4,13 +4,18 @@ import android.content.Intent;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CloudEducationHomeActivity extends AppCompatActivity {
 
@@ -79,15 +84,17 @@ public class CloudEducationHomeActivity extends AppCompatActivity {
 
         // set ListView
         listView = (ListView) findViewById(R.id.lv);
-        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strs));
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        MyAdapter mAdapter = new MyAdapter(this);
+        listView.setAdapter(mAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                setTitle("你点击了第" + i + "行");
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3){
+                Log.v("MyListViewBase", "你点击了ListView条目"+arg2);
             }
         });
-    }
 
+
+    }
 
     public void getInCurriculum(View view) {
         Intent intent = new Intent(this, CurriculumActivity.class);
