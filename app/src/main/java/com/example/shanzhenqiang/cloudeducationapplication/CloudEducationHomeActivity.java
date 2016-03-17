@@ -22,10 +22,6 @@ public class CloudEducationHomeActivity extends AppCompatActivity {
     private LinearLayout ll = null;
     private LinearLayout ll2 = null;
 
-    private static final String[] strs = new String[]{
-            "first", "second", "third", "fourth", "fifth"
-    };
-
     private ListView listView;
 
     @Override

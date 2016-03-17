@@ -3,9 +3,12 @@ package com.example.shanzhenqiang.cloudeducationapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class CurriculumDetailsActivity extends AppCompatActivity {
@@ -13,6 +16,8 @@ public class CurriculumDetailsActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "com.example.shanzhenqiang.cloudeducationapplication.MASSAGE";
     private LinearLayout ll = null;
     private LinearLayout ll2 = null;
+
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +72,21 @@ public class CurriculumDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(intent3);
+            }
+        });
+
+        // set ListView
+        listView = (ListView) findViewById(R.id.lv);
+        MyAdapter mAdapter = new MyAdapter(this);
+        listView.setAdapter(mAdapter);
+        final Intent intentListView = new Intent(this, CurriculumMaterialActivity.class);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3){
+                String message = "curriculumDetail";
+                intentListView.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intentListView);
+                Log.v("MyListViewBase", "你点击了ListView条目"+arg2);
             }
         });
     }

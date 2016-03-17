@@ -3,15 +3,20 @@ package com.example.shanzhenqiang.cloudeducationapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class PersonalCenterActivity extends AppCompatActivity {
 
     private LinearLayout ll = null;
     private LinearLayout ll2 = null;
+
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +67,17 @@ public class PersonalCenterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(intent3);
+            }
+        });
+
+        // set ListView
+        listView = (ListView) findViewById(R.id.lv);
+        MyAdapter mAdapter = new MyAdapter(this);
+        listView.setAdapter(mAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3){
+                Log.v("MyListViewBase", "你点击了ListView条目"+arg2);
             }
         });
     }
