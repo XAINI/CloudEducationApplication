@@ -4,14 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".WelcomeActivity">
+    tools:context=".WelcomeActivity"
+    android:background="@color/lightBlue">
 
     <TextView
         android:layout_marginTop="40dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="欢迎登录我们平台学习！"
-        android:textColor="@color/green"
+        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:textSize="30sp"
         android:gravity="center"/>

@@ -5,21 +5,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by shanzhenqiang on 2016/3/17.
+ * Created by shanzhenqiang on 2016/3/18.
  */
-public class MyAdapter extends BaseAdapter {
+public class MyButtonAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater;
 
-    public MyAdapter(Context context){
+    public MyButtonAdapter(Context context){
         this.mInflater = LayoutInflater.from(context);
     }
+
     @Override
     public int getCount() {
 
@@ -40,34 +41,33 @@ public class MyAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null){
-            convertView = mInflater.inflate(R.layout.item, null);
+            convertView = mInflater.inflate(R.layout.button_item, null);
             holder = new ViewHolder();
-            holder.title = (TextView) convertView.findViewById(R.id.ItemTitle);
+            holder.btn = (Button) convertView.findViewById(R.id.ItemBtn);
             convertView.setTag(holder);
         }else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.title.setText(getDate().get(position).get("ItemTitle").toString());
+        holder.btn.setText(getDate().get(position).get("ItemBtn").toString());
         return convertView;
     }
 
-    public final class ViewHolder {
-        public TextView title;
+    public final class ViewHolder{
+        public Button btn;
     }
 
     private ArrayList<HashMap<String, Object>> getDate(){
-        ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
+        ArrayList<HashMap<String, Object>> listView = new ArrayList<HashMap<String, Object>>();
 
+        String[] data = new String[]{">编程语言",">移动开发",">产品设计",">WEB开发",">操作系统",">数据库",">产品运营",">数据结构",">计算机网络",">软件测试",">软件运维"};
 
-        String[] data = new String[]{"PHP视频教程","C语言教程","C++基础","汇编语言从零开始","Java编程全套课程精讲","数据结构"};
-
-        for (int i = 0; i < data.length; i++){
-            HashMap<String,Object> map = new HashMap<String, Object>();
-            map.put("ItemTitle",data[i]);
-            listItem.add(map);
+        for (int i = 0; i < data.length; i ++){
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("ItemBtn", data[i]);
+            listView.add(map);
         }
 
-        return listItem;
+        return listView;
     }
 }

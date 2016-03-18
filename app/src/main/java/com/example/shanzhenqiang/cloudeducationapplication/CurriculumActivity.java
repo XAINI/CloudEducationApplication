@@ -4,14 +4,17 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class CurriculumActivity extends AppCompatActivity {
 
     private LinearLayout ll = null;
     private LinearLayout ll2 = null;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,17 @@ public class CurriculumActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(intent3);
+            }
+        });
+
+        final Intent intentListView =new Intent(this, CurriculumDetailsActivity.class);
+        listView = (ListView) findViewById(R.id.lv);
+        MyButtonAdapter mBtnAdapter = new MyButtonAdapter(this);
+        listView.setAdapter(mBtnAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(intentListView);
             }
         });
     }

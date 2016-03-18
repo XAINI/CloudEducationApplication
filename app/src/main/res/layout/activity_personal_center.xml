@@ -22,8 +22,9 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/home_37"
+            android:background="@drawable/i1"
             android:scaleType="fitStart"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"/>
 
         <LinearLayout
@@ -31,7 +32,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="30dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,7 +78,7 @@
             android:id="@+id/lv"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="5dp">
 
         </ListView>
     </LinearLayout>

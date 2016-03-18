@@ -10,4 +10,6 @@
     <color name="white">#FAFAFA</color>
     <color name="deepGray">#A0A0A0</color>
     <color name="yellowGreen">#66CC00</color>
+    <color name="skyBlue">#0098CB</color>
+    <color name="lightBlue">#B0D4E1</color>
 </resources>
