@@ -29,12 +29,12 @@
             android:layout_height="80dp"
             android:orientation="horizontal"
             android:gravity="center"
-            android:background="@color/deepGray">
+            android:background="@color/colorPrimary">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_themer_48px"/>
+                android:src="@drawable/money_back_guarantee"/>
 
             <TextView
                 android:layout_marginLeft="20dp"
@@ -50,12 +50,13 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/green">
+            android:background="@color/colorPrimary">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="您好！\n\u3000\u3000您的这节课程中第二章第二课没有上，您可以在“参与的课程”中查找相关的视频。感谢您预定我们的课程"/>
+                android:text="您好！\n\u3000\u3000您的这节课程中第二章第二课没有上，您可以在“参与的课程”中查找相关的视频。感谢您预定我们的课程"
+                android:textColor="@color/white"/>
         </LinearLayout>
 
     </LinearLayout>

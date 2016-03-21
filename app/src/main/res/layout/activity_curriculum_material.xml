@@ -27,7 +27,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/deepGray"
+                android:background="@color/lightGray"
                 android:text="视频"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
@@ -90,7 +90,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/deepGray"
+                android:background="@color/lightGray"
                 android:text="资料"
                 android:textSize="16sp"
                 android:textStyle="bold"/>

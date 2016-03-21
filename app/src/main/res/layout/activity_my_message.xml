@@ -49,7 +49,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
                 android:orientation="horizontal"
-                android:background="@color/deepGray"
+                android:background="@color/colorPrimary"
                 android:gravity="center">
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/icon_themer_48px"/>
+                        android:src="@drawable/money_back_guarantee"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginLeft="10dp"
@@ -101,7 +101,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
                 android:orientation="horizontal"
-                android:background="@color/deepGray"
+                android:background="@color/colorPrimary"
                 android:gravity="center">
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -111,7 +111,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/icon_themer_48px"/>
+                        android:src="@drawable/money_back_guarantee"/>
 
                 </LinearLayout>
 
@@ -152,7 +152,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
                 android:orientation="horizontal"
-                android:background="@color/deepGray"
+                android:background="@color/colorPrimary"
                 android:gravity="center">
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -162,7 +162,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/icon_themer_48px"/>
+                        android:src="@drawable/money_back_guarantee"/>
 
                 </LinearLayout>
 
