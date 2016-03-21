@@ -68,16 +68,16 @@ public class CurriculumActivity extends AppCompatActivity {
             }
         });
 
-        final Intent intentListView =new Intent(this, CurriculumDetailsActivity.class);
-        listView = (ListView) findViewById(R.id.lv);
-        MyButtonAdapter mBtnAdapter = new MyButtonAdapter(this);
-        listView.setAdapter(mBtnAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(intentListView);
-            }
-        });
+//        final Intent intentListView =new Intent(this, CurriculumDetailsActivity.class);
+//        listView = (ListView) findViewById(R.id.lv);
+//        MyButtonAdapter mBtnAdapter = new MyButtonAdapter(this);
+//        listView.setAdapter(mBtnAdapter);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                startActivity(intentListView);
+//            }
+//        });
     }
 
 

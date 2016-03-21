@@ -28,8 +28,7 @@
             android:layout_height="wrap_content">
             <Button android:gravity="center"
                 android:padding="20dp"
-                android:text="编程语言"
-                android:onClick="#"/>
+                android:text="编程语言"/>
             <Button android:gravity="center"
                 android:padding="20dp"
                 android:text="移动开发"/>
