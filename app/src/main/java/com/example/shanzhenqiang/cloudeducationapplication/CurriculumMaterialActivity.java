@@ -83,4 +83,10 @@ public class CurriculumMaterialActivity extends AppCompatActivity {
         });
     }
 
+    public void playerVideo(View view){
+        Intent intent = new Intent(this, SurfaceActivity.class);
+        startActivity(intent);
+        System.out.println("jump to Surface activity");
+    }
+
 }

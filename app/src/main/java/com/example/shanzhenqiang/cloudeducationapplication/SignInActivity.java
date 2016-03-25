@@ -14,7 +14,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void signIn(View view){
-        Intent intent = new Intent(this, WelcomeActivity.class);
+        Intent intent = new Intent(this, CloudEducationHomeActivity.class);
         startActivity(intent);
     }
 
