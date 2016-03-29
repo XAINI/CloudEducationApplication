@@ -89,6 +89,8 @@ public class CurriculumDetailsActivity extends AppCompatActivity {
                 Log.v("MyListViewBase", "你点击了ListView条目"+arg2);
             }
         });
+
+
     }
 
 

@@ -3,8 +3,6 @@ package com.example.shanzhenqiang.cloudeducationapplication;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.net.Uri;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,10 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.MediaController;
 import android.widget.TextView;
-import android.widget.VideoView;
 
+//implements SurfaceHolder.Callback
 public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.Callback{
 
     private LinearLayout ll;
@@ -31,7 +28,6 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surface);
-        System.out.println("I am get in here");
 
         ll2 = (LinearLayout) findViewById(R.id.headerId);
         ll = (LinearLayout) findViewById(R.id.footerId);
@@ -78,15 +74,8 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
             }
         });
 
-//        Uri uri = Uri.parse(Environment.getExternalStorageDirectory().getPath()+"G:/FFOutput/party.3gp");
-//        Log.v("EnvironmentPath","getPath" + Environment.getExternalStorageDirectory().getPath());
-//        VideoView videoView = (VideoView)this.findViewById(R.id.video_view);
-//        videoView.setMediaController(new MediaController(this));
-//        videoView.setVideoURI(uri);
-//        videoView.start();
-//        videoView.requestFocus();
-
         // video player
+
         play=(Button)findViewById(R.id.button1);
         pause=(Button)findViewById(R.id.button2);
         stop=(Button)findViewById(R.id.button3);
@@ -132,13 +121,10 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
         player.setDisplay(surfaceHolder);
         //设置显示视频显示在SurfaceView上
         try {
-            player.setDataSource("http://yuntv.letv.com/bcloud.swf?uu=xrtjxlf2et&vu=019ce37495&auto_play=1&gpcflag=1 ");
-            player.setOnPreparedListener((MediaPlayer.OnPreparedListener) this);
+            player.setDataSource("http://7xsd7r.com1.z0.glb.clouddn.com/party.mp4");
             player.prepare();
         } catch (Exception e) {
             e.printStackTrace();
-            Log.v("exceptionState","Exception");
-            finish();
         }
     }
 

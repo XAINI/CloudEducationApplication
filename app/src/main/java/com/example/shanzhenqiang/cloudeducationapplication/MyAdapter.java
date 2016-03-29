@@ -1,10 +1,13 @@
 package com.example.shanzhenqiang.cloudeducationapplication;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -43,17 +46,25 @@ public class MyAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.item, null);
             holder = new ViewHolder();
             holder.title = (TextView) convertView.findViewById(R.id.ItemTitle);
+            holder.follow = (Button) convertView.findViewById(R.id.ItemImBtn);
             convertView.setTag(holder);
         }else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         holder.title.setText(getDate().get(position).get("ItemTitle").toString());
+        holder.follow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("MyListViewBase", "你点击了按钮" + position);
+            }
+        });
         return convertView;
     }
 
     public final class ViewHolder {
         public TextView title;
+        public Button follow;
     }
 
     private ArrayList<HashMap<String, Object>> getDate(){

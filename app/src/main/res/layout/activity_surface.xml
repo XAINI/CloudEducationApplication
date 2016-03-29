@@ -14,13 +14,18 @@
             android:id="@+id/headerId"/>
     </LinearLayout>
 
-    <SurfaceView
-        android:layout_width="320dp"
-        android:layout_height="220dp"
-        android:layout_gravity="center"
-        android:layout_weight="0.25"
-        android:id="@+id/surface"
-        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+        <SurfaceView
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:id="@+id/surface" />
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
@@ -45,8 +50,8 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp">
         <include
             android:id="@+id/footerId"
             layout="@layout/activity_footer" />

@@ -42,25 +42,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="PHP视频教程第一章.rmvb"
-                android:textColor="@color/black"
-                android:autoLink="email|phone|web"/>
+                android:text="PHP视频教程第一章.mp4"
+                android:textColor="@color/black"/>
             <TextView
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="PHP视频教程第二章.rmvb"
-                android:textColor="@color/black"
-                android:autoLink="email|phone|web"/>
+                android:text="PHP视频教程第二章.mp4"
+                android:textColor="@color/black"/>
             <TextView
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="PHP视频教程第三章.rmvb"
-                android:textColor="@color/black"
-                android:autoLink="email|phone|web"/>
+                android:text="PHP视频教程第三章.mp4"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:layout_marginTop="20dp"
