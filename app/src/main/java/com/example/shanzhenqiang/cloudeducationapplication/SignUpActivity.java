@@ -12,6 +12,10 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,7 +47,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 MyTask myTask = new MyTask();
-                myTask.execute("Hello");
+                myTask.execute();
             }
         });
 
@@ -59,7 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
-            String result = "123";
+            String result = null;
 
             try {
                 result = test_get();
@@ -72,23 +76,39 @@ public class SignUpActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            Log.v("IWantKoKnowResultStruct", "ThisIsResult===="+result);
+            ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
+            try {
+                JSONArray jsonArray = new JSONArray(result);
+                for (int i = 0; i< jsonArray.length(); i++){
+                    HashMap<String,Object> map = new HashMap<String, Object>();
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    String name = jsonObject.getString("name");
+                    String path = jsonObject.getString("path");
+                    String content = jsonObject.getString("content");
+
+                    map.put("name", name);
+                    listItem.add(map);
+
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+//            System.out.println(listItem);
             textView = (TextView) findViewById(R.id.testView);
             textView.setText(result);
         }
 
-    }
+        String test_get() throws Exception {
+            String url = "http://192.168.100.3:3000/curriculums/fetch_curriculums";
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder().url(url).build();
+            Response response = client.newCall(request).execute();
+            if (response.isSuccessful()) {
+                return response.body().string();
+            } else {
+                throw new IOException("Unexpected code " + response);
+            }
 
-
-    String test_get() throws Exception {
-        String url = "http://192.168.100.3:3000/curriculums";
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder().url(url).build();
-        Response response = client.newCall(request).execute();
-        if (response.isSuccessful()) {
-            return response.body().string();
-        } else {
-            throw new IOException("Unexpected code " + response);
         }
 
     }
