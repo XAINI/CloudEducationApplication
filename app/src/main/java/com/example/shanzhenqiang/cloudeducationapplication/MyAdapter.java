@@ -25,6 +25,7 @@ import okhttp3.Response;
 public class MyAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater;
+    private String result;
 
     public MyAdapter(Context context){
         this.mInflater = LayoutInflater.from(context);
@@ -73,13 +74,20 @@ public class MyAdapter extends BaseAdapter {
         public Button follow;
     }
 
+    public String setData(String result){
+        MyTask myTask = new MyTask();
+        myTask.execute();
+        System.out.println("ThisIsSetDataFunction===" + result);
+        return result;
+    }
+
     private ArrayList<HashMap<String, Object>> getDate(){
         ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
 
-        String dataCurriculum = null;
+        setData(result);
+        System.out.println("ThisIsGetDataFunction====" + result);
 
-        MyTask myTask = new MyTask();
-        myTask.execute();
+
 
         String[] data = new String[]{"PHP视频教程","C语言教程","C++基础","汇编语言从零开始","Java编程全套课程精讲","数据结构"};
 
@@ -117,6 +125,8 @@ public class MyAdapter extends BaseAdapter {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
+            System.out.println("ThisIsOnPostExecute===" + result);
+            setData(result);
         }
 
         String test_get() throws Exception {
@@ -126,7 +136,6 @@ public class MyAdapter extends BaseAdapter {
             Response response = client.newCall(request).execute();
 
             if (response.isSuccessful()) {
-                System.out.println("This is http function===" + response.body().string());
                 return response.body().string();
             } else {
                 throw new IOException("Unexpected code " + response);
