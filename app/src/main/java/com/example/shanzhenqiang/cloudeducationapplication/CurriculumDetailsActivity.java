@@ -1,6 +1,7 @@
 package com.example.shanzhenqiang.cloudeducationapplication;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,12 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.io.IOException;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class CurriculumDetailsActivity extends AppCompatActivity {
 
@@ -76,20 +83,65 @@ public class CurriculumDetailsActivity extends AppCompatActivity {
         });
 
         // set ListView
-        listView = (ListView) findViewById(R.id.lv);
-        MyAdapter mAdapter = new MyAdapter(this);
-        listView.setAdapter(mAdapter);
-        final Intent intentListView = new Intent(this, CurriculumMaterialActivity.class);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3){
-                String message = "curriculumDetail";
-                intentListView.putExtra(EXTRA_MESSAGE, message);
-                startActivity(intentListView);
-                Log.v("MyListViewBase", "你点击了ListView条目"+arg2);
-            }
-        });
+        MyTask task = new MyTask();
+        task.execute();
 
+    }
+
+    public class MyTask extends AsyncTask<String, Integer, String> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+
+        @Override
+        protected String doInBackground(String... strings) {
+            String result;
+            try {
+                result = test_get();
+                return result;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            listView = (ListView) findViewById(R.id.lv);
+            MyAdapter mAdapter = new MyAdapter(CurriculumDetailsActivity.this);
+            mAdapter.setData(result);
+            listView.setAdapter(mAdapter);
+
+            final Intent intentListView = new Intent(CurriculumDetailsActivity.this, CurriculumMaterialActivity.class);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3){
+                    String message = "curriculumDetail";
+                    intentListView.putExtra(EXTRA_MESSAGE, message);
+                    startActivity(intentListView);
+                    Log.v("MyListViewBase", "你点击了ListView条目"+arg2);
+                }
+            });
+
+        }
+
+    }
+
+    String test_get() throws Exception {
+        String url = "http://192.168.100.3:3000/curriculums/fetch_curriculums";
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder().url(url).build();
+        Response response = client.newCall(request).execute();
+        if (response.isSuccessful()) {
+            return response.body().string();
+        } else {
+            throw new IOException("Unexpected code " + response);
+        }
 
     }
 

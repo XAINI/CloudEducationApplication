@@ -1,6 +1,7 @@
 package com.example.shanzhenqiang.cloudeducationapplication;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,10 +11,15 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class SignUpActivity extends AppCompatActivity {
     /*public final static String EXTRA_MESSAGE = "com.example.myapplication.MESSAGE";*/
@@ -29,15 +35,15 @@ public class SignUpActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         mgr = new DBManager(this);
 
-//        Button btn = (Button) findViewById(R.id.testId);
-//        btn.setOnClickListener(new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View view){
-//                MyTask myTask = new MyTask();
-//                myTask.execute();
-//            }
-//        });
+        Button btn = (Button) findViewById(R.id.testId);
+        btn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                MyTask myTask = new MyTask();
+                myTask.execute("Hello");
+            }
+        });
 
     }
 

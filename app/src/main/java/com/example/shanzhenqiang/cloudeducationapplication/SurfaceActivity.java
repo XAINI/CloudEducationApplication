@@ -121,7 +121,7 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
         player.setDisplay(surfaceHolder);
         //设置显示视频显示在SurfaceView上
         try {
-            player.setDataSource("http://7xsd7r.com1.z0.glb.clouddn.com/party.mp4");
+            player.setDataSource("http://7xsd7r.com1.z0.glb.clouddn.com/%E6%B5%8B%E8%AF%95%E8%A7%86%E9%A2%91.mp4");
             player.prepare();
         } catch (Exception e) {
             e.printStackTrace();
