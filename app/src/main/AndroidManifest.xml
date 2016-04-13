@@ -3,7 +3,7 @@
     package="com.example.shanzhenqiang.cloudeducationapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -32,6 +32,7 @@
         <activity android:name=".HeaderActivity" />
         <activity android:name=".OnlyTitleHeaderActivity" />
         <activity android:name=".SurfaceActivity" />
+        <activity android:name=".DisplayWordActivity"></activity>
     </application>
 
 </manifest>

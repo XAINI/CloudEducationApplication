@@ -129,7 +129,7 @@
                 android:layout_gravity="center"
                 android:text="PHP视频教程第四章大纲.doc"
                 android:textColor="@color/black"
-                android:autoLink="email|phone|web"/>
+                android:onClick="openWord"/>
 
             <ImageView
                 android:layout_marginTop="10dp"

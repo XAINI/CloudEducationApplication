@@ -68,6 +68,7 @@ public class CurriculumActivity extends AppCompatActivity {
             }
         });
 
+        //课程分类标签
 //        final Intent intentListView =new Intent(this, CurriculumDetailsActivity.class);
 //        listView = (ListView) findViewById(R.id.lv);
 //        MyButtonAdapter mBtnAdapter = new MyButtonAdapter(this);

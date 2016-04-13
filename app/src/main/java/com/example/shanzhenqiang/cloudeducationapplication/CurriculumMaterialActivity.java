@@ -1,12 +1,15 @@
 package com.example.shanzhenqiang.cloudeducationapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.io.File;
 
 public class CurriculumMaterialActivity extends AppCompatActivity {
 
@@ -86,6 +89,12 @@ public class CurriculumMaterialActivity extends AppCompatActivity {
     public void playerVideo(View view){
         Intent intent = new Intent(this, SurfaceActivity.class);
         startActivity(intent);
+    }
+
+    public void openWord(View view){
+        Intent intent = new Intent(this,DisplayWordActivity.class);
+        startActivity(intent);
+
     }
 
 }

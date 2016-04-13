@@ -58,8 +58,6 @@ public class MyAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        System.out.println(getData());
-
         holder.title.setText(getData().get(position).get("ItemTitle").toString());
         holder.follow.setOnClickListener(new View.OnClickListener() {
             @Override

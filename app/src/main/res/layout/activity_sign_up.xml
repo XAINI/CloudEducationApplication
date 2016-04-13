@@ -83,8 +83,8 @@
             android:id="@+id/sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="signUpUser"
             android:text="@string/sign_up" />
+        <!--android:onClick="signUpUser"-->
     </LinearLayout>
 
     <LinearLayout
@@ -107,22 +107,6 @@
             android:text="query"
             android:textColor="@color/green"/>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/testId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test" />
-        <TextView
-            android:id="@+id/testView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="fill_parent"
