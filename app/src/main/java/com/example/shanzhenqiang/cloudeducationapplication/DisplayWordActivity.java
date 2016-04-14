@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -23,10 +25,25 @@ import static android.content.pm.PackageManager.*;
 
 public class DisplayWordActivity extends AppCompatActivity {
 
+    private LinearLayout ll1 = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_word);
+
+
+        //header's onclick event
+        ll1 = (LinearLayout) findViewById(R.id.headerId);
+        ImageButton backBtn = (ImageButton) ll1.findViewById(R.id.backId);
+
+        backBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(DisplayWordActivity.this, CurriculumMaterialActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         TextView textView = (TextView) findViewById(R.id.textWordId);

@@ -37,7 +37,7 @@
             android:textSize="17sp" />
 
         <EditText
-            android:id="@+id/accountEdittext"
+            android:id="@+id/accountEditTextId"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:hint="@string/account"
@@ -60,7 +60,7 @@
             android:textSize="17sp" />
 
         <EditText
-            android:id="@+id/pwdEdittext"
+            android:id="@+id/pwdEditTextId"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:hint="@string/pwd"
@@ -85,6 +85,11 @@
             android:layout_height="wrap_content"
             android:text="@string/sign_up" />
         <!--android:onClick="signUpUser"-->
+
+        <TextView
+            android:id="@+id/thisTestView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout

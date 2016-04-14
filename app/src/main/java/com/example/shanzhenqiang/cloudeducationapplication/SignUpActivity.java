@@ -12,12 +12,18 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -40,11 +46,6 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         //获取text中 用户填入的值
-
-//        EditText editText = (EditText) findViewById(R.id.edit_message);
-//        String message = editText.getText().toString();
-//        intent.putExtra(EXTRA_MESSAGE, message);
-
         listView = (ListView) findViewById(R.id.listView);
         Button btn = (Button) findViewById(R.id.sign_up);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -57,23 +58,20 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-
     // connect rails service invoke new users
     public class MyTask extends AsyncTask<String, Integer, String> {
-
-        String url = "http://192.168.100.3:3000/users/new";
-        String json = "json";
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+
         }
 
         @Override
         protected String doInBackground(String... strings) {
-            String result;
+            String  result = null;
             try {
-                result = post_to_service(url, json);
+                result = post_to_service();
                 return result;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -85,31 +83,28 @@ public class SignUpActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
 
-//            listView = (ListView) findViewById(R.id.lv);
-//            MyAdapter mAdapter = new MyAdapter(CloudEducationHomeActivity.this);
-//            mAdapter.setData(result);
-//            listView.setAdapter(mAdapter);
-//            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-//
-//                }
-//            });
+            TextView listView = (TextView) findViewById(R.id.thisTestView);
+            listView.setText(result);
 
         }
 
-    }
+        String post_to_service() throws IOException {
+            String url = "http://192.168.100.3:3000/users/sign_up_from_android";
+            EditText accountId = (EditText) findViewById(R.id.accountEditTextId);
+            EditText passwordId = (EditText) findViewById(R.id.pwdEditTextId);
 
+            OkHttpClient client = new OkHttpClient();
 
-    String post_to_service(String url, String json) throws IOException {
+            RequestBody formBody = new FormBody.Builder()
+                    .add("user[:name]", accountId.getText().toString())
+                    .add("user[:password]", passwordId.getText().toString())
+                    .build();
+            Request request = new Request.Builder().url(url).post(formBody).build();
+            Response response = client.newCall(request).execute();
+            return response.body().string();
+//            if (!response.isSuccessful())throw new IOException("Unexpected code " + response);
+        }
 
-        final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-        OkHttpClient client = new OkHttpClient();
-
-        RequestBody body = RequestBody.create(JSON, json);
-        Request request = new Request.Builder().url(url).post(body).build();
-        Response response = client.newCall(request).execute();
-        return response.body().string();
     }
 
 
