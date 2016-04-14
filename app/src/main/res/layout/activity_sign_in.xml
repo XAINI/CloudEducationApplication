@@ -21,10 +21,10 @@
             android:textSize="20sp"/>
 
         <TextView
+            android:id="@+id/SignInPromptId"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="您的账号与密码不符"
             android:textColor="@color/colorAccent"
             android:textSize="12sp"/>
 
@@ -48,7 +48,7 @@
             android:textSize="17sp" />
 
         <EditText
-            android:id="@+id/accountEdittext"
+            android:id="@+id/signInAccountId"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:hint="@string/account"
@@ -72,7 +72,7 @@
             android:textSize="17sp" />
 
         <EditText
-            android:id="@+id/pwdEdittext"
+            android:id="@+id/signInPwdId"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:hint="@string/pwd"
@@ -92,11 +92,10 @@
             android:text="@string/cancel"/>
 
         <Button
-            android:id="@+id/login_in"
+            android:id="@+id/signInBtnId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login_in"
-            android:onClick="signIn"/>
+            android:text="@string/login_in"/>
     </LinearLayout>
 
     <LinearLayout
