@@ -26,8 +26,11 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        // User sign up
+//         User sign up
         Button btn = (Button) findViewById(R.id.sign_up);
+        Button btnReset = (Button) findViewById(R.id.resetBtnId);
+
+        // click sign up button
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,9 +39,20 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        //click reset button
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText nameId = (EditText) findViewById(R.id.accountEditTextId);
+                EditText pwdId = (EditText) findViewById(R.id.pwdEditTextId);
+                nameId.getText().clear();
+                pwdId.getText().clear();
+            }
+        });
+
     }
 
-    // connect rails service invoke new users
+//     connect rails service invoke new users
     public class MyTask extends AsyncTask<String, Integer, String> {
 
         @Override
@@ -79,11 +93,10 @@ public class SignUpActivity extends AppCompatActivity {
 
         String post_to_service() throws IOException {
             String url = "http://192.168.100.3:3000/users/sign_up_from_android";
-            EditText accountId = (EditText) findViewById(R.id.accountEditTextId);
-            EditText passwordId = (EditText) findViewById(R.id.pwdEditTextId);
-
             OkHttpClient client = new OkHttpClient();
 
+            EditText accountId = (EditText) findViewById(R.id.accountEditTextId);
+            EditText passwordId = (EditText) findViewById(R.id.pwdEditTextId);
             RequestBody formBody = new FormBody.Builder()
                     .add("user[:name]", accountId.getText().toString())
                     .add("user[:password]", passwordId.getText().toString())

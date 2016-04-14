@@ -86,10 +86,10 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/cancel"
+            android:id="@+id/signInResetId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cancel"/>
+            android:text="@string/reset"/>
 
         <Button
             android:id="@+id/signInBtnId"

@@ -86,10 +86,10 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/cancel"
+            android:id="@+id/resetBtnId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cancel" />
+            android:text="@string/reset" />
 
         <Button
             android:id="@+id/sign_up"
@@ -110,13 +110,6 @@
             android:onClick="checkSignUp"
             android:text="@string/sign_up_prompt"
             android:textColor="@color/green" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:onClick="query"
-            android:text="query"
-            android:textColor="@color/green"/>
     </LinearLayout>
 
     <LinearLayout

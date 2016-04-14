@@ -33,12 +33,27 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+//       user sign in
         Button btn = (Button) findViewById(R.id.signInBtnId);
+        Button btnReset = (Button) findViewById(R.id.signInResetId);
+
+        //sign in
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MySignInTask signInTask = new MySignInTask();
                 signInTask.execute();
+            }
+        });
+
+        // reset
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText nameId = (EditText) findViewById(R.id.signInAccountId);
+                EditText pwdId = (EditText) findViewById(R.id.signInPwdId);
+                nameId.getText().clear();
+                pwdId.getText().clear();
             }
         });
     }
