@@ -52,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-//     connect rails service invoke new users
+    //     connect rails service invoke new users
     public class MyTask extends AsyncTask<String, Integer, String> {
 
         @Override
@@ -63,7 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
-            String  result = null;
+            String result = null;
             try {
                 result = post_to_service();
                 return result;
@@ -79,16 +79,22 @@ public class SignUpActivity extends AppCompatActivity {
 
             TextView listView = (TextView) findViewById(R.id.thisTestView);
             listView.setText(result);
-            final Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+            if (result.equals("Successfully")) {
+                listView.setTextColor(getResources().getColor(R.color.green));
+                final Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
 
-            Timer timer = new Timer();
-            TimerTask task = new TimerTask() {
-                @Override
-                public void run() {
-                    startActivity(intent);
-                }
-            };
-            timer.schedule(task, 1000 * 1);
+                Timer timer = new Timer();
+                TimerTask task = new TimerTask() {
+                    @Override
+                    public void run() {
+                        startActivity(intent);
+                    }
+                };
+                timer.schedule(task, 1000 * 1);
+
+            } else {
+                listView.setTextColor(getResources().getColor(R.color.red));
+            }
         }
 
         String post_to_service() throws IOException {
@@ -108,8 +114,8 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    public void checkSignUp(View view){
-        Intent intent = new Intent(this,SignInActivity.class);
+    public void checkSignUp(View view) {
+        Intent intent = new Intent(this, SignInActivity.class);
         startActivity(intent);
     }
 }

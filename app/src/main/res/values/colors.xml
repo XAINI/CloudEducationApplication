@@ -5,7 +5,7 @@
     <color name="lightBlue">#375BFC</color>
     <color name="skyBlue">#0098CB</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="red">#CC011F</color>
+    <color id= "red" name="red">#CC011F</color>
     <color name="green">#00CC66</color>
     <color name="lightGray">#D4D4D4</color>
     <color name="black">#000000</color>
