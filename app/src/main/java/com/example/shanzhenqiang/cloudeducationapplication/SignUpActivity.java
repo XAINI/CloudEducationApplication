@@ -109,7 +109,12 @@ public class SignUpActivity extends AppCompatActivity {
                     .build();
             Request request = new Request.Builder().url(url).post(formBody).build();
             Response response = client.newCall(request).execute();
-            return response.body().string();
+            if (response.isSuccessful()) {
+                return response.body().string();
+            } else {
+                throw new IOException("Unexpected code " + response);
+            }
+
         }
 
     }

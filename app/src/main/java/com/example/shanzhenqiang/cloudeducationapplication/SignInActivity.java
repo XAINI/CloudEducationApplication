@@ -63,6 +63,9 @@ public class SignInActivity extends AppCompatActivity {
 //  登录的 Task
     public class MySignInTask extends AsyncTask<String, Integer, String> {
 
+        EditText accountId = (EditText) findViewById(R.id.signInAccountId);
+        EditText pwdId = (EditText) findViewById(R.id.signInPwdId);
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -85,21 +88,29 @@ public class SignInActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
 
+            TextView textView = (TextView) findViewById(R.id.SignInPromptId);
+            String accountInHere = accountId.getText().toString();
+            String pwdInHere = pwdId.getText().toString();
+
             ArrayList<HashMap<String, Object>> listItem = formatConvert(result);
             boolean compareResult = verification(listItem);
             if (compareResult == true){
                 Intent intent = new Intent(SignInActivity.this, CloudEducationHomeActivity.class);
                 startActivity(intent);
             }else{
-                TextView textView = (TextView) findViewById(R.id.SignInPromptId);
-                textView.setText("您的账号与密码不符");
+                if (accountInHere.equals(""))
+                    textView.setText("请输入账号");
+                if (pwdInHere.equals(""))
+                    textView.setText("请输入密码");
+                if (accountInHere.equals("")&&pwdInHere.equals(""))
+                    textView.setText("请输入您的账号和密码");
+                if (!accountInHere.equals("") && !pwdInHere.equals(""))
+                    textView.setText("您的账号与密码不符");
             }
         }
 
         // 验证用户信息（用户名和密码是否存在）
         public boolean  verification(ArrayList<HashMap<String, Object>> listItem){
-            EditText accountId = (EditText) findViewById(R.id.signInAccountId);
-            EditText pwdId = (EditText) findViewById(R.id.signInPwdId);
             HashMap<String, Object> map = new HashMap<String, Object>();
 
             String account = accountId.getText().toString();
