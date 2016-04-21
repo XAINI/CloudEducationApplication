@@ -16,22 +16,24 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
 //implements SurfaceHolder.Callback
-public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.Callback{
+public class SurfaceActivity extends AppCompatActivity{
 
     private LinearLayout ll;
     private LinearLayout ll2;
 
     private MediaPlayer player;
     private SurfaceView surface;
-    private SurfaceHolder surfaceHolder;
-    private Button play,pause,stop;
-    private SeekBar skd_video;
+    private Button play,pause,stop,replay;
+    private SeekBar seekBar;
 
-    private boolean isChanging=false;//互斥变量，防止定时器与SeekBar拖动时进度冲突
+    private boolean isChanging;//互斥变量，防止定时器与SeekBar拖动时进度冲突
+    private int currentPosition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,107 +87,57 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
 
         // video player
 
-        play=(Button)findViewById(R.id.button1);// 播放
-        pause=(Button)findViewById(R.id.button2); //暂停
-        stop=(Button)findViewById(R.id.button3); // 停止
+        play = (Button)findViewById(R.id.button1);// 播放
+        pause = (Button)findViewById(R.id.button2); //暂停
+        stop = (Button)findViewById(R.id.button3); // 停止
+        replay = (Button) findViewById(R.id.replayBtn);
         surface=(SurfaceView)findViewById(R.id.surface);
-        skd_video = (SeekBar) this.findViewById(R.id.seekBarId);
+        seekBar = (SeekBar) this.findViewById(R.id.seekBarId);
 
-        surfaceHolder=surface.getHolder();  //SurfaceHolder是SurfaceView的控制接口
-        surfaceHolder.addCallback(this);  //因为这个类实现了SurfaceHolder.Callback接口，所以回调参数直接this
-        surfaceHolder.setFixedSize(320, 220);  //显示的分辨率,不设置为视频默认
-        surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);  //Surface类型
+        player = new MediaPlayer();
+        player.setOnCompletionListener(complete);
 
-        player=new MediaPlayer();
-        //播放结束后弹出提示
-        player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                Toast.makeText(SurfaceActivity.this, "结束", Toast.LENGTH_LONG).show();
-                player.release();
+
+        play.setOnClickListener(click);
+        pause.setOnClickListener(click);
+        stop.setOnClickListener(click);
+        replay.setOnClickListener(click);
+
+
+        // 为SurfaceHolder添加回掉
+        surface.getHolder().addCallback(callback);
+        seekBar.setOnSeekBarChangeListener(change);
+
+    }
+
+
+
+
+    //测试代码
+    private SurfaceHolder.Callback callback = new SurfaceHolder.Callback() {
+        @Override
+        public void surfaceCreated(SurfaceHolder holder) {
+            if (currentPosition > 0){
+                play(currentPosition);
+                currentPosition = 0;
             }
-        });
-
-        play.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                player.start();
-            }});
-
-        pause.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                player.pause();
-            }});
-
-        stop.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                if (player != null){
-                    player.stop();
-                    player.release();
-                    player = null;
-                }
-            }});
-
-        skd_video.setOnSeekBarChangeListener(new seekBarChangeEvent());
-
-    }
-
-    @Override
-    public void surfaceChanged(SurfaceHolder arg0, int arg1, int arg2, int arg3) {
-    }
-
-    @Override
-    public void surfaceCreated(SurfaceHolder arg0) {
-        //必须在surface创建后才能初始化MediaPlayer,否则不会显示图像;
-        player=new MediaPlayer();
-//        player.reset();
-        player.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        player.setDisplay(surfaceHolder); //设置显示视频显示在SurfaceView上
-        try {
-            player.setDataSource("http://7xsd7r.com1.z0.glb.clouddn.com/%E6%B5%8B%E8%AF%95%E8%A7%86%E9%A2%91.mp4");
-            player.prepare();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-        skd_video.setMax(player.getDuration()); // 设置SeekBar的长度
-        skd_video.setProgress(player.getCurrentPosition());
 
-//        Timer timer = new Timer();
-//        TimerTask timerTask= new TimerTask() {
-//            @Override
-//            public void run() {
-//                if(isChanging==true)
-//                    return;
-//                if(player.getVideoHeight()==0)
-//                    skd_video.setProgress(player.getCurrentPosition());
-//            }
-//        };
-//
-//        timer.schedule(timerTask, 0, 10);
-    }
+        @Override
+        public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 
-    @Override
-    public void surfaceDestroyed(SurfaceHolder arg0) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        // TODO Auto-generated method stub
-        super.onDestroy();
-        if(player.isPlaying()){
-            player.stop();
         }
-        player.release(); //Activity销毁时停止播放，释放资源。不做这个操作，即使退出还是能听到视频播放的声音
-    }
 
-    /**
-     * seekBar进度改变事件
-     * */
-    class seekBarChangeEvent implements SeekBar.OnSeekBarChangeListener{
+        @Override
+        public void surfaceDestroyed(SurfaceHolder holder) {
+            if (player != null && player.isPlaying()){
+                currentPosition = player.getCurrentPosition();
+                player.stop();
+            }
+        }
+    };
+
+    private SeekBar.OnSeekBarChangeListener change = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
@@ -193,13 +145,143 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
 
         @Override
         public void onStartTrackingTouch(SeekBar seekBar) {
-            isChanging = true;
+
         }
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
-            player.seekTo(seekBar.getProgress());
+            int progress = seekBar.getProgress();
+            if (player != null && player.isPlaying()){
+                player.seekTo(progress);
+            }
+        }
+
+    };
+
+    private View.OnClickListener click = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.button1:
+                    play(0);
+                    break;
+                case R.id.button2:
+                    pause();
+                    break;
+                case R.id.button3:
+                    stop();
+                    break;
+                case R.id.replayBtn:
+                    replay();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    protected void stop(){
+        if (player != null && player.isPlaying()){
+            player.stop();
+            player.release();
+            player = null;
+            play.setEnabled(true);
             isChanging = false;
         }
     }
+
+    protected void play(final int msec){
+        try {
+            player = new MediaPlayer();
+            player.reset();
+            player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            player.setDisplay(surface.getHolder());
+            player.setDataSource("http://7xsd7r.com1.z0.glb.clouddn.com/%E6%B5%8B%E8%AF%95%E8%A7%86%E9%A2%91.mp4");
+            player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    player.start();
+                    player.seekTo(msec);
+                    seekBar.setMax(player.getDuration());
+                    new Thread(){
+                        public void run(){
+                            try {
+                                isChanging = true;
+                                while (isChanging){
+                                    int current = player.getCurrentPosition();
+                                    seekBar.setProgress(current);
+                                    sleep(500);
+                                }
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }catch (IllegalStateException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }.start();
+
+                    play.setEnabled(false);
+                }
+            });
+            player.prepareAsync();
+
+            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    play.setEnabled(true);
+                }
+            });
+
+            player.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+                @Override
+                public boolean onError(MediaPlayer mp, int what, int extra) {
+                    play(0);
+                    isChanging = false;
+                    return false;
+                }
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    protected void replay(){
+        System.out.println("player"+player.getDuration());
+        if (player != null && player.isPlaying()){
+            player.seekTo(0);
+            Toast.makeText(this, "重新播放", Toast.LENGTH_LONG).show();
+            pause.setText("暂停");
+            return;
+        }
+        replay.setEnabled(true);
+        isChanging = false;
+        play(0);
+    }
+
+    protected void pause(){
+        if (pause.getText().toString().trim().equals("播放")){
+            pause.setText("暂停");
+            player.start();
+            Toast.makeText(this, "继续播放", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (player != null && player.isPlaying()){
+            player.pause();
+            pause.setText("播放");
+            Toast.makeText(this, "暂停播放", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+    private MediaPlayer.OnCompletionListener complete = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            play(0);
+        }
+    };
+
+
 }

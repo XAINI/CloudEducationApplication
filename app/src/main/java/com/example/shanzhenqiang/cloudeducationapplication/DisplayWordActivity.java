@@ -12,16 +12,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
-
 import java.io.File;
 import java.util.List;
-
-import static android.content.pm.PackageManager.*;
 
 public class DisplayWordActivity extends AppCompatActivity {
 

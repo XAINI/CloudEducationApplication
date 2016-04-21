@@ -52,6 +52,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/button3"
             android:text="停止"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/replayBtn"
+            android:text="重播"/>
     </LinearLayout>
 
     <LinearLayout
