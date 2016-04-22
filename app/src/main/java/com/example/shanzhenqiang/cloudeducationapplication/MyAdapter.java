@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -52,7 +53,7 @@ public class MyAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.item, null);
             holder = new ViewHolder();
             holder.title = (TextView) convertView.findViewById(R.id.ItemTitle);
-            holder.follow = (Button) convertView.findViewById(R.id.ItemImBtn);
+            holder.follow = (ImageView) convertView.findViewById(R.id.followViewId);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -62,7 +63,7 @@ public class MyAdapter extends BaseAdapter {
         holder.follow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.v("MyListViewBase", "你点击了按钮" + position);
+                Log.v("MyListViewBase", "你点击了关注图标" + position);
             }
         });
         return convertView;
@@ -70,7 +71,7 @@ public class MyAdapter extends BaseAdapter {
 
     public final class ViewHolder {
         public TextView title;
-        public Button follow;
+        public ImageView follow;
     }
 
     public String setData(String result) {

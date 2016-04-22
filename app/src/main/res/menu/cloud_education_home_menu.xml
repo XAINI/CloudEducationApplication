@@ -5,11 +5,15 @@
 
     <item
         android:id="@+id/menu_settings"
-        android:title="Hello"/>
+        android:title="Hello"
+        android:icon = "@drawable/book_19"
+        android:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_about"
-        android:title="Hi"/>
+        android:title="Hi"
+        android:icon="@drawable/book_19"/>
     <item
         android:id="@+id/menu_quit"
-        android:title="HowAreYou"/>
+        android:title="HowAreYou"
+        android:icon = "@drawable/book_19"/>
 </menu>

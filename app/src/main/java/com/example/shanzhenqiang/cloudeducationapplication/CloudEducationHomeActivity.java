@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ShareActionProvider;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -34,6 +36,8 @@ public class CloudEducationHomeActivity extends AppCompatActivity {
     private LinearLayout ll2 = null;
 
     private ListView listView;
+
+    private ShareActionProvider shareActionProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,14 +101,13 @@ public class CloudEducationHomeActivity extends AppCompatActivity {
         MyLabelTask myLabelTask = new MyLabelTask();
         myLabelTask.execute();
 
-//        Button menuId = (Button) findViewById(R.id.menuId);
-//        menuId.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view){
-//
-//                openOptionsMenu();
-//            }
-//        });
+        Button menuId = (Button) findViewById(R.id.menuId);
+        menuId.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                openOptionsMenu();
+            }
+        });
 
     }
 
@@ -113,8 +116,26 @@ public class CloudEducationHomeActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.cloud_education_home_menu, menu);
-        return true;
+
+        return super.onCreateOptionsMenu(menu);
     }
+//
+//    @Override
+//    public boolean onKeyUp(int keyCode, KeyEvent event){
+//        if (keyCode == KeyEvent.KEYCODE_MENU){
+//            View v = findViewById(R.id.menuId);
+//            v.performClick();
+//            return true;
+//        }
+//        return super.onKeyUp(keyCode, event);
+//    }
+//
+//    public boolean onKeyDown(int keyCode, KeyEvent event){
+//        if (keyCode == KeyEvent.KEYCODE_MENU){
+//            super.openOptionsMenu();
+//        }
+//        return true;
+//    }
 
 //    //点击Menu菜单选项响应事件
     public boolean onOptionsItemSelected(MenuItem item) {

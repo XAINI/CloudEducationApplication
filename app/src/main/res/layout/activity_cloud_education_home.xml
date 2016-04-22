@@ -22,47 +22,8 @@
             android:id="@+id/menuId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="onClick"/>
+            android:text="全部课程"/>
     </LinearLayout>
-
-    <!--<TableLayout-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="5dp"-->
-        <!--android:shrinkColumns="0,1,2"-->
-        <!--android:stretchColumns="0,1,2">-->
-        <!--<TableRow android:layout_width="fill_parent"-->
-            <!--android:layout_height="wrap_content">-->
-            <!--<Button android:gravity="center"-->
-                <!--android:padding="20dp"-->s
-                <!--android:text="编程语言"/>-->
-            <!--<Button android:gravity="center"-->
-                <!--android:padding="20dp"-->
-                <!--android:text="移动开发"/>-->
-            <!--<Button android:gravity="center"-->
-                <!--android:padding="20dp"-->
-                <!--android:text="Web开发"/>-->
-            <!--<Button android:gravity="center"-->
-                <!--android:padding="20dp"-->
-                <!--android:text="操作系统"/>-->
-        <!--</TableRow>-->
-        <!--<TableRow android:layout_width="fill_parent"-->
-            <!--android:layout_height="wrap_content">-->
-            <!--<Button android:gravity="center"-->
-                <!--android:padding="20dp"-->
-                <!--android:text="数据库"/>-->
-            <!--<Button android:gravity="center"-->
-                <!--android:padding="20dp"-->
-                <!--android:text="产品运营"/>-->
-            <!--<Button android:gravity="center"-->
-                <!--android:padding="20dp"-->
-                <!--android:text="硬件开发"/>-->
-            <!--<Button android:gravity="center"-->
-                <!--android:padding="20dp"-->
-                <!--android:onClick="getInCurriculum"-->
-                <!--android:text="更多..."/>-->
-        <!--</TableRow>-->
-    <!--</TableLayout>-->
 
     <LinearLayout
         android:layout_width="fill_parent"
