@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CloudEducationHomeActivity">
 
     <item
         android:id="@+id/menu_settings"
-        android:orderInCategory="1"
-        android:icon="@drawable/home_27"
         android:title="Hello"/>
     <item
         android:id="@+id/menu_about"
-        android:orderInCategory="2"
-        android:icon="@drawable/about_48px"
         android:title="Hi"/>
     <item
         android:id="@+id/menu_quit"
-        android:orderInCategory="3"
-        android:icon="@drawable/icon_themer_32px"
         android:title="HowAreYou"/>
 </menu>

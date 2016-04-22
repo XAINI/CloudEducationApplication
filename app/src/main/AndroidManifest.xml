@@ -3,7 +3,7 @@
     package="com.example.shanzhenqiang.cloudeducationapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <application
@@ -33,7 +33,7 @@
         <activity android:name=".HeaderActivity" />
         <activity android:name=".OnlyTitleHeaderActivity" />
         <activity android:name=".SurfaceActivity" />
-        <activity android:name=".DisplayWordActivity"></activity>
+        <activity android:name=".DisplayWordActivity" />
     </application>
 
 </manifest>

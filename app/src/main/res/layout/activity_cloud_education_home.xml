@@ -18,13 +18,11 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
-        <ImageButton
+        <Button
             android:id="@+id/menuId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src = "@drawable/about_48px"
-            android:textAlignment="center"
-            android:text = "课程分类"/>
+            android:text="onClick"/>
     </LinearLayout>
 
     <!--<TableLayout-->

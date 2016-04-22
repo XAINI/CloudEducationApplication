@@ -94,10 +94,6 @@ public class SurfaceActivity extends AppCompatActivity{
         surface=(SurfaceView)findViewById(R.id.surface);
         seekBar = (SeekBar) this.findViewById(R.id.seekBarId);
 
-        player = new MediaPlayer();
-        player.setOnCompletionListener(complete);
-
-
         play.setOnClickListener(click);
         pause.setOnClickListener(click);
         stop.setOnClickListener(click);
@@ -193,7 +189,6 @@ public class SurfaceActivity extends AppCompatActivity{
     protected void play(final int msec){
         try {
             player = new MediaPlayer();
-            player.reset();
             player.setAudioStreamType(AudioManager.STREAM_MUSIC);
             player.setDisplay(surface.getHolder());
             player.setDataSource("http://7xsd7r.com1.z0.glb.clouddn.com/%E6%B5%8B%E8%AF%95%E8%A7%86%E9%A2%91.mp4");
@@ -228,7 +223,7 @@ public class SurfaceActivity extends AppCompatActivity{
             player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
-                    play.setEnabled(true);
+                    play.setEnabled(false);
                 }
             });
 
@@ -248,16 +243,20 @@ public class SurfaceActivity extends AppCompatActivity{
 
 
     protected void replay(){
-        System.out.println("player"+player.getDuration());
         if (player != null && player.isPlaying()){
             player.seekTo(0);
             Toast.makeText(this, "重新播放", Toast.LENGTH_LONG).show();
             pause.setText("暂停");
             return;
         }
-        replay.setEnabled(true);
-        isChanging = false;
-        play(0);
+
+        if (player !=null && !player.isPlaying()){
+            player.seekTo(0);
+            Toast.makeText(this, "重新播放", Toast.LENGTH_LONG).show();
+            pause.setText("暂停");
+            player.start();
+            return;
+        }
     }
 
     protected void pause(){
@@ -274,14 +273,5 @@ public class SurfaceActivity extends AppCompatActivity{
             Toast.makeText(this, "暂停播放", Toast.LENGTH_LONG).show();
         }
     }
-
-
-    private MediaPlayer.OnCompletionListener complete = new MediaPlayer.OnCompletionListener() {
-        @Override
-        public void onCompletion(MediaPlayer mp) {
-            play(0);
-        }
-    };
-
 
 }

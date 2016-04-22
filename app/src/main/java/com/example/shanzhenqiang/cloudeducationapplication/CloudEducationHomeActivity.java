@@ -9,7 +9,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -87,21 +89,23 @@ public class CloudEducationHomeActivity extends AppCompatActivity {
         });
 
 
-        // set ListView
+//        // set ListView
         MyTask task = new MyTask();
         task.execute();
-
-        // curriculum label
+//
+//        // curriculum label
         MyLabelTask myLabelTask = new MyLabelTask();
         myLabelTask.execute();
 
-        ImageButton menuId = (ImageButton) findViewById(R.id.menuId);
-        menuId.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                openOptionsMenu();
-            }
-        });
+//        Button menuId = (Button) findViewById(R.id.menuId);
+//        menuId.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//
+//                openOptionsMenu();
+//            }
+//        });
+
     }
 
 
@@ -112,7 +116,7 @@ public class CloudEducationHomeActivity extends AppCompatActivity {
         return true;
     }
 
-    //点击Menu菜单选项响应事件
+//    //点击Menu菜单选项响应事件
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case 1:
@@ -129,14 +133,9 @@ public class CloudEducationHomeActivity extends AppCompatActivity {
 
     //菜单被显示之前的事件
     public boolean onPrepareOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.cloud_education_home_menu,menu);
-        return super.onPrepareOptionsMenu(menu);
+
+        return true;
     }
-
-
-
-
-
 
 
 
@@ -194,7 +193,6 @@ public class CloudEducationHomeActivity extends AppCompatActivity {
 
     }
 
-
     public class MyLabelTask extends AsyncTask<String, Integer, String> {
 
         @Override
@@ -221,7 +219,6 @@ public class CloudEducationHomeActivity extends AppCompatActivity {
 
             ArrayList<HashMap<String, Object>> listItem = formatConvert(result);
 
-            System.out.println(listItem);
         }
 
 
